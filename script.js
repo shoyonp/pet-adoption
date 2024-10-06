@@ -15,8 +15,19 @@ const loadAllPets = () => {
     .catch((error) => console.log(error));
 };
 
+// load category pets
+const loadCategoryPets = (category) => {
+//   alert(id)
+  fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+  .then((res) => res.json())
+  .then((data) => displayAllPets(data.data))
+  .catch((error) => console.log(error));
+};
+
+// display all pets
 const displayAllPets = (pets) => {
   const petContainer = document.getElementById("petCard");
+  petContainer.innerHTML ="";
   pets.forEach((pet) => {
     console.log(pet);
     const card = document.createElement("div");
@@ -31,10 +42,18 @@ const displayAllPets = (pets) => {
   </figure>
   <div class="card-body px-0">
     <h2 class="card-title">${pet.pet_name}</h2>
-    <p class="flex items-center gap-2"><img src="https://img.icons8.com/?size=16&id=68585&format=png"> Breed: ${pet.breed ? pet.breed : "Not available"}</p>
-    <p class="flex items-center gap-2"><img class="w-4" src="https://img.icons8.com/?size=24&id=84997&format=png"> Birth: ${pet.date_of_birth? pet.date_of_birth : "Not available"}</p>
-    <p class="flex items-center gap-2"><img class="w-4" src="https://img.icons8.com/?size=25&id=2LHzVg3k4AqG&format=png"> Gender: ${pet.gender? pet.gender : "Not available"}</p>
-    <p class="flex items-center gap-2"><img class="w-4" src="https://img.icons8.com/?size=24&id=85782&format=png"> Price: ${pet.price}$ </p>
+    <p class="flex items-center gap-2"><img src="https://img.icons8.com/?size=16&id=68585&format=png"> Breed: ${
+      pet.breed ? pet.breed : "Not available"
+    }</p>
+    <p class="flex items-center gap-2"><img class="w-4" src="https://img.icons8.com/?size=24&id=84997&format=png"> Birth: ${
+      pet.date_of_birth ? pet.date_of_birth : "Not available"
+    }</p>
+    <p class="flex items-center gap-2"><img class="w-4" src="https://img.icons8.com/?size=25&id=2LHzVg3k4AqG&format=png"> Gender: ${
+      pet.gender ? pet.gender : "Not available"
+    }</p>
+    <p class="flex items-center gap-2"><img class="w-4" src="https://img.icons8.com/?size=24&id=85782&format=png"> Price: ${
+      pet.price
+    }$ </p>
   </div>
   <hr>
   <div class="card-actions flex justify-between mt-3">
@@ -52,10 +71,13 @@ const displayAllPets = (pets) => {
 const displayCategories = (categories) => {
   const categoryContainer = document.getElementById("category");
 
+//   setTimeout(function (){
+//     console.log(categories);
+//   },2000)
   categories.forEach((item) => {
     const button = document.createElement("button");
     button.innerHTML = `
-        <button class="flex items-center gap-2 p-4 font-bold text-2xl border rounded-2xl hover:bg-gray-300"><img class="w-6" src="${item.category_icon}"> ${item.category}</button>
+        <button onclick="loadCategoryPets('${item.category}')" class="flex items-center gap-2 p-4 font-bold text-2xl border rounded-2xl hover:bg-gray-300"><img class="w-6" src="${item.category_icon}"> ${item.category}</button>
         `;
     categoryContainer.append(button);
   });
