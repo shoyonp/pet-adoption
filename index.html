@@ -18,8 +18,8 @@
       .font-lato {
         font-family: "Lato", sans-serif;
       }
-       /* Spinner styles */
-       #spinner {
+      /* Spinner styles */
+      #spinner {
         display: none;
         width: 40px;
         height: 40px;
@@ -83,47 +83,60 @@
       <!-- banner section -->
       <div class="text-center w-7/12 mx-auto">
         <h4 class="mt-7 text-gray-500">Bringing Families Together ❤️‍🔥</h4>
-        <h1 class="text-6xl font-black mt-7 text-center">
+        <h1 class="text-4xl md:text-6xl font-black mt-7 text-center">
           Your Path to Adoption Starts Here
         </h1>
         <p class="font-normal text-base mt-7 text-gray-500">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a.
+          Embark on a rewarding journey by adopting a pet that needs a loving home. Whether you’re looking for a playful kitten or a loyal dog, this is where your search begins. Bring joy to your family while giving a deserving animal a second chance at happiness.
         </p>
         <div class="mt-6">
-          <button
+          <a href="#section"><button
             class="btn rounded-xl text-white font-bold text-xl bg-primary"
           >
             View More
-          </button>
+          </button></a>
+          
         </div>
         <img class="mx-auto mt-6" src="images/pet.webp" alt="" />
       </div>
     </header>
     <!-- main section -->
     <main class="mt-8 w-11/12 mx-auto">
-      <section>
+      <section id="section">
         <!--text content -->
         <div class="w-7/12 text-center mx-auto">
           <h3 class="font-black text-4xl mb-7">Adopt Your Best Friend</h3>
           <p class="font-normal text-base text-gray-500">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a.
+            Discover the joy of adopting your new best friend today. Cats, dogs, or rabbits, they are waiting for your love and care. By adopting, you're not just getting a companion, but you’re also giving them a home filled with warmth and affection. Start your friendship today!
           </p>
         </div>
         <!-- api all image -->
         <div>
           <!-- pet category buttons -->
-          <div id="category" class="py-5 grid grid-cols-2 gap-4 mx-auto md:flex justify-between"></div>
+          <div
+            id="category"
+            class="py-5 grid grid-cols-2 gap-4 mx-auto md:flex justify-between"
+          ></div>
           <!-- spinner -->
-           <div id="spinner"></div>
+          <div id="spinner"></div>
           <!-- pet card section -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div id="petCard" class=" grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+            <div
+              id="petCard"
+             class="grid grid-cols-1 md:grid-cols-3 gap-4"
+            ></div>
             <div class="border border-gray-400 rounded-xl"></div>
           </div>
+          <!-- error section -->
+          <!-- <div class="bg-gray-200 border-none rounded-3xl text-center p-8">
+              <img class="mx-auto mb-6" src="images/error.webp" alt="" />
+              <h2 class="font text-3xl mb-6">No Information Available</h2>
+              <p class="font-normal text-base text-gray-400 ">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a.
+              </p>
+          </div> -->
         </div>
       </section>
     </main>
