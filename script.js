@@ -17,19 +17,21 @@ const loadAllPets = () => {
 
 // load category pets
 const loadCategoryPets = (category) => {
-//   alert(id)
-  fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
-  .then((res) => res.json())
-  .then((data) => displayAllPets(data.data))
-  .catch((error) => console.log(error));
+  document.getElementById("spinner").style.display = "block";
+  setTimeout(function () {
+    document.getElementById("spinner").style.display = "none";
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+      .then((res) => res.json())
+      .then((data) => displayAllPets(data.data))
+      .catch((error) => console.log(error));
+  }, 2000);
 };
 
 // display all pets
 const displayAllPets = (pets) => {
   const petContainer = document.getElementById("petCard");
-  petContainer.innerHTML ="";
+  petContainer.innerHTML = "";
   pets.forEach((pet) => {
-    console.log(pet);
     const card = document.createElement("div");
     card.classList = "card ";
     card.innerHTML = `
@@ -71,9 +73,6 @@ const displayAllPets = (pets) => {
 const displayCategories = (categories) => {
   const categoryContainer = document.getElementById("category");
 
-//   setTimeout(function (){
-//     console.log(categories);
-//   },2000)
   categories.forEach((item) => {
     const button = document.createElement("button");
     button.innerHTML = `
