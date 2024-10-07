@@ -1,5 +1,13 @@
 console.log("hello");
 
+const removeActiveClass = () => {
+    const buttons = document.getElementsByClassName("category-btn")
+    console.log(buttons);
+    for(let btn of buttons){
+        btn.classList.remove("active");
+    }
+}
+
 // load categories
 const loadCategories = () => {
   fetch("https://openapi.programming-hero.com/api/peddy/categories")
@@ -22,7 +30,12 @@ const loadCategoryPets = (category) => {
     document.getElementById("spinner").style.display = "none";
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
       .then((res) => res.json())
-      .then((data) => displayAllPets(data.data))
+      .then((data) => {
+        removeActiveClass();
+        const activeBtn = document.getElementById(`btn-${category}`);
+        activeBtn.classList.add("active")
+        displayAllPets(data.data)
+      })
       .catch((error) => console.log(error));
   }, 2000);
 };
@@ -97,7 +110,7 @@ const displayCategories = (categories) => {
   categories.forEach((item) => {
     const button = document.createElement("button");
     button.innerHTML = `
-        <button onclick="loadCategoryPets('${item.category}')" class="flex items-center gap-2 p-4 font-bold text-2xl border rounded-2xl hover:bg-gray-300"><img class="w-6" src="${item.category_icon}"> ${item.category}</button>
+        <button id="btn-${item.category}" onclick="loadCategoryPets('${item.category}')" class="flex items-center gap-2 p-4 font-bold text-2xl border rounded-2xl hover:bg-gray-300 category-btn"><img class="w-6" src="${item.category_icon}"> ${item.category}</button>
         `;
     categoryContainer.append(button);
   });
