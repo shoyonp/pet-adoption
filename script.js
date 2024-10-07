@@ -50,6 +50,7 @@ const displayAllPets = (pets) => {
   })
   
   if (pets.length == 0) {
+    petContainer.classList.remove("grid")
     petContainer.innerHTML = `
      <div>
      <div class="bg-gray-200 border-none rounded-3xl text-center p-8 ">
@@ -63,6 +64,8 @@ const displayAllPets = (pets) => {
           </div></div>
     `;
     return;
+  }else{
+    petContainer.classList.add("grid");
   }
 
   pets.forEach((pet) => {
