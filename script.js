@@ -61,16 +61,16 @@ const openModal = () => {
 
   let countdown = 3;
 
-  // setInterval(() => {
-  //   countdown--;
-  //   if(countdown === 0){
-  //    let value = document.getElementById("countdownValue")
-  //    value.innerText = countdown;
-  //    const div = document.getElementById("countdown-modal");
-  //    div.style.display = "none";
+  setInterval(() => {
+    countdown--;
+    if(countdown === 0){
+     let value = document.getElementById("countdownValue")
+     value.innerText = countdown;
+     const div = document.getElementById("countdown-modal");
+     closeModal();
 
-  //   }
-  // },1000)
+    }
+  },1000)
 };
 
 // load pets short by price
@@ -92,7 +92,7 @@ const displayPetPhotos = (photos) => {
   const div = document.createElement("div");
 
   div.innerHTML = `
-  <div class=" p-3 grid grid-cols-2"><img class="rounded-lg" src="${photos}"></div>
+  <div class="p-3"><img class="rounded-lg" src="${photos}"></div>
   `;
   petPhoto.append(div);
 };
