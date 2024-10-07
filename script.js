@@ -58,19 +58,21 @@ const loadPetPhotos = (photos) => {
 // countdown modal
 const openModal = () => {
   my_modal_2.showModal();
-
   let countdown = 3;
 
-  setInterval(() => {
+  countdownInterval = setInterval(() => {
     countdown--;
-    if(countdown === 0){
-     let value = document.getElementById("countdownValue")
-     value.innerText = countdown;
-     const div = document.getElementById("countdown-modal");
-     closeModal();
-
+    document.getElementById("countdownValue").innerText = countdown;
+    if (countdown === 1) {
+      clearInterval(countdownInterval);
+      // document.getElementById("countdown-modal").closeModal();
     }
-  },1000)
+    // document.getElementById("countdown-modal").closeModal();
+  }, 1000);
+
+  function closeModal() {
+    // document.getElementById("countdown-modal").closeModal();
+  }
 };
 
 // load pets short by price
@@ -181,7 +183,7 @@ const displayAllPets = (pets) => {
     }$ </p>
   </div>
   <hr>
-  <div class="card-actions flex justify-between mt-3">
+  <div class="card-actions flex justify-between mt-3 items-center">
       <button onclick="loadPetPhotos(${
         pet.petId
       })" class="border border-gray-400 rounded-lg p-2 hover:bg-gray-300"><img src="https://img.icons8.com/?size=24&id=82788&format=png"></button>
