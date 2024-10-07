@@ -59,23 +59,19 @@ const loadPetPhotos = (photos) => {
 const openModal = () => {
   my_modal_2.showModal();
   let countdown = 3;
+  document.getElementById("countdownValue").innerText = countdown;
 
   const countdownInterval = setInterval(() => {
     countdown--;
     document.getElementById("countdownValue").innerText = countdown;
-    if (countdown === 1) {
+    if (countdown === 0) {
       clearInterval(countdownInterval);
-      // document.getElementById("countdown-modal").closeModal();
+      document.getElementById("close").click();
     }
-    // document.getElementById("countdown-modal").closeModal();
   }, 1000);
-
-  function closeModal() {
-    // document.getElementById("countdown-modal").closeModal();
-  }
 };
 
-// load pets short by price
+// load pets sort by price
 const loadShortPets = async () => {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/peddy/pets"
@@ -119,7 +115,7 @@ const displayPetDetails = (petDetails) => {
     <p class="flex items-center text-gray-500 gap-2"><img class="w-4" src="https://img.icons8.com/?size=24&id=85782&format=png"> Price: ${
       petDetails.price
     }$ </p>
-    <p class="flex items-center text-gray-500 gap-2 mb-3><img class="w-4" src="https://img.icons8.com/?size=32&id=16275&format=png"> Vaccinated status: ${
+    <p class="flex items-center text-gray-500 gap-2 mb-3><img class="w-4" src="https://img.icons8.com/?size=24&id=85782&format=png"> Vaccinated status: ${
       petDetails.vaccinated_status
         ? petDetails.vaccinated_status
         : "Not available"
