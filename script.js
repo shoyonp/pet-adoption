@@ -2,7 +2,6 @@ console.log("hello");
 
 const removeActiveClass = () => {
   const buttons = document.getElementsByClassName("category-btn");
-  console.log(buttons);
   for (let btn of buttons) {
     btn.classList.remove("active");
   }
@@ -72,6 +71,19 @@ const openModal = () => {
 
   //   }
   // },1000)
+};
+
+// load pets short by price
+const loadShortPets = async () => {
+  const res = await fetch(
+    "https://openapi.programming-hero.com/api/peddy/pets"
+  );
+  const data = await res.json();
+  const petPrice = data.pets;
+  // console.log(short);
+  petPrice.sort((a, b) => b.price - a.price);
+  console.log(petPrice);
+  displayAllPets(petPrice);
 };
 
 // display pet photos

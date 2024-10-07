@@ -113,16 +113,17 @@
           <div class="flex justify-between items-center my-4 mb-3">
             <h1 class="font-black text-2xl">Best Deal For you</h1>
             <button
+              onclick="loadShortPets()"
               class="btn rounded-xl text-white font-bold text-xl bg-primary"
             >
-            Sort by Price
+              Sort by Price
             </button>
           </div>
           <!-- spinner -->
           <span id="spinner" class="loading loading-infinity loading-lg"></span>
           <!-- pet card section -->
           <div class="grid grid-cols-1 md:flex gap-5">
-            <div 
+            <div
               id="petCard"
               class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
             ></div>
@@ -141,7 +142,9 @@
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
-            <button class="active p-2 rounded-lg hover:bg-slate-200 ">Cancel</button>
+            <button class="active p-2 rounded-lg hover:bg-slate-200">
+              Cancel
+            </button>
           </form>
         </div>
       </div>
@@ -150,7 +153,11 @@
     <div id="countdown-modal">
       <dialog id="my_modal_2" class="modal">
         <div class="modal-box text-center">
-          <img class="mx-auto mb-3" src="https://img.icons8.com/?size=48&id=q6BlPrJZmxHV&format=png" alt="">
+          <img
+            class="mx-auto mb-3"
+            src="https://img.icons8.com/?size=48&id=q6BlPrJZmxHV&format=png"
+            alt=""
+          />
           <h3 class="text-lg font-bold">Congrates</h3>
           <p class="py-4">Adoption Process is Start For Your Pet</p>
           <span id="countdownValue">3</span>
