@@ -60,7 +60,7 @@ const openModal = () => {
   my_modal_2.showModal();
   let countdown = 3;
 
-  countdownInterval = setInterval(() => {
+  const countdownInterval = setInterval(() => {
     countdown--;
     document.getElementById("countdownValue").innerText = countdown;
     if (countdown === 1) {
